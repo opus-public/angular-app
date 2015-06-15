@@ -5,6 +5,8 @@ version 0.11.1.
 
 This is a test bit of text added.
 
+##Mark's update
+
 ## Build & development
 
 Run `grunt` for building and `grunt serve` for preview.
