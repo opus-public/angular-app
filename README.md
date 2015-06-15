@@ -7,6 +7,8 @@ This is a test bit of text added.
 
 ##Mark's update
 
+##Mark's second update
+
 ## Build & development
 
 Run `grunt` for building and `grunt serve` for preview.
