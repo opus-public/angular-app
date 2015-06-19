@@ -19,3 +19,5 @@ This is a test
 ## Testing
 
 Running `grunt test` will run the unit tests with karma.
+
+Foo
