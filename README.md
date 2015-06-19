@@ -13,6 +13,8 @@ This is a test bit of text added.
 
 Run `grunt` for building and `grunt serve` for preview.
 
+This is a test
+
 ## Testing
 
 Running `grunt test` will run the unit tests with karma.
