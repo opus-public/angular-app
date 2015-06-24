@@ -1,23 +1,85 @@
-# opus-solutions123
-123
-abcdef
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.11.1.
+# Realex Remote Java SDK
 
-This is a test bit of text added.
+You can sign up for a Stripe account at https://stripe.com.
 
-##Mark's update
+## Requirements
+Java 1.6 and later.
 
-##Mark's second update
+Installation
+============
 
-## Build & development
+### Maven users
 
-Run `grunt` for building and `grunt serve` for preview.
+Add this dependency to your project's POM:
 
-This is a test
+```xml
+<dependency>
+  <groupId>com.stripe</groupId>
+  <artifactId>stripe-java</artifactId>
+  <version>1.31.0</version>
+</dependency>
+```
 
-## Testing
+### Gradle users
 
-Running `grunt test` will run the unit tests with karma.
+Add this dependency to your project's build file:
 
-Foo
+```groovy
+compile "com.stripe:stripe-java:1.31.0"
+```
+
+### Others
+
+You'll need to manually install the following JARs:
+
+* The Stripe JAR from https://github.com/stripe/stripe-java/releases/latest
+* [Google Gson](http://code.google.com/p/google-gson/) from <http://google-gson.googlecode.com/files/google-gson-2.2.4-release.zip>.
+
+### [ProGuard](http://proguard.sourceforge.net/)
+
+If you're planning on using ProGuard, make sure that you exclude the Stripe bindings. You can do this by adding the following to your `proguard.cfg` file:
+
+    -keep class com.stripe.** { *; }
+
+Usage
+=====
+
+StripeExample.java
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+import com.stripe.Stripe;
+import com.stripe.exception.StripeException;
+import com.stripe.model.Charge;
+import com.stripe.net.RequestOptions;
+
+public class StripeExample {
+
+    public static void main(String[] args) {
+        RequestOptions requestOptions = (new RequestOptionsBuilder()).setApiKey("YOUR-SECRET-KEY").build();
+        Map<String, Object> chargeMap = new HashMap<String, Object>();
+        chargeMap.put("amount", 100);
+        chargeMap.put("currency", "usd");
+        Map<String, Object> cardMap = new HashMap<String, Object>();
+        cardMap.put("number", "4242424242424242");
+        cardMap.put("exp_month", 12);
+        cardMap.put("exp_year", 2020);
+        chargeMap.put("card", cardMap);
+        try {
+            Charge charge = Charge.create(chargeMap, requestOptions);
+            System.out.println(charge);
+        } catch (StripeException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+See [StripeTest.java](https://github.com/stripe/stripe-java/blob/master/src/test/java/com/stripe/StripeTest.java) for more examples.
+
+Testing
+=======
+
+You must have Maven installed. To run the tests, simply run `mvn test`. You can run particular tests by passing `-D test=Class#method` -- for example, `-D test=StripeTest#testPlanCreate`.
