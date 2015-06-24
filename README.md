@@ -1,12 +1,11 @@
 # Realex Remote Java SDK
 
-You can sign up for a Stripe account at https://stripe.com.
+You can sign up for a Realex account at https://www.realexpayments.com.
 
 ## Requirements
 Java 1.6 and later.
 
-Installation
-============
+## Installation
 
 ### Maven users
 
@@ -14,18 +13,10 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-  <groupId>com.stripe</groupId>
-  <artifactId>stripe-java</artifactId>
-  <version>1.31.0</version>
+  <groupId>com.realexpayments</groupId>
+  <artifactId>rxp-remote-java</artifactId>
+  <version>1.0</version>
 </dependency>
-```
-
-### Gradle users
-
-Add this dependency to your project's build file:
-
-```groovy
-compile "com.stripe:stripe-java:1.31.0"
 ```
 
 ### Others
