@@ -33,24 +33,25 @@ import com.stripe.exception.StripeException;
 import com.stripe.model.Charge;
 import com.stripe.net.RequestOptions;
 
-public class StripeExample {
+public class RealexRemote {
 
     public static void main(String[] args) {
-        RequestOptions requestOptions = (new RequestOptionsBuilder()).setApiKey("YOUR-SECRET-KEY").build();
-        Map<String, Object> chargeMap = new HashMap<String, Object>();
-        chargeMap.put("amount", 100);
-        chargeMap.put("currency", "usd");
-        Map<String, Object> cardMap = new HashMap<String, Object>();
-        cardMap.put("number", "4242424242424242");
-        cardMap.put("exp_month", 12);
-        cardMap.put("exp_year", 2020);
-        chargeMap.put("card", cardMap);
-        try {
-            Charge charge = Charge.create(chargeMap, requestOptions);
-            System.out.println(charge);
-        } catch (StripeException e) {
-            e.printStackTrace();
-        }
+          Card card = new Card()
+        .addExpiryDate(1, 19)
+        .addNumber("420000000000000000")
+        .addType(CardType.VISA)
+        .addCardHolderName("Joe Smith")
+        .addCvn(123)
+        .addCvnPresenceIndicator(PresenceIndicator.CVN_PRESENT);
+ 
+    PaymentRequest request = new PaymentRequest()
+        .addAccount("yourAccount")
+        .addMerchantId("yourMerchantId")
+        .addType(PaymentType.AUTH)
+        .addAmount(100)
+        .addCurrency("EUR")
+        .addCard(card)
+        .addAutoSettle(new AutoSettle().addFlag(AutoSettleFlag.TRUE)); 
     }
 }
 ```
