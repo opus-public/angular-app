@@ -36,22 +36,22 @@ import com.stripe.net.RequestOptions;
 public class RealexRemote {
 
     public static void main(String[] args) {
-          Card card = new Card()
-        .addExpiryDate(1, 19)
-        .addNumber("420000000000000000")
-        .addType(CardType.VISA)
-        .addCardHolderName("Joe Smith")
-        .addCvn(123)
-        .addCvnPresenceIndicator(PresenceIndicator.CVN_PRESENT);
- 
-    PaymentRequest request = new PaymentRequest()
-        .addAccount("yourAccount")
-        .addMerchantId("yourMerchantId")
-        .addType(PaymentType.AUTH)
-        .addAmount(100)
-        .addCurrency("EUR")
-        .addCard(card)
-        .addAutoSettle(new AutoSettle().addFlag(AutoSettleFlag.TRUE)); 
+        Card card = new Card()
+            .addExpiryDate(1, 19)
+            .addNumber("420000000000000000")
+            .addType(CardType.VISA)
+            .addCardHolderName("Joe Smith")
+            .addCvn(123)
+            .addCvnPresenceIndicator(PresenceIndicator.CVN_PRESENT);
+
+        PaymentRequest request = new PaymentRequest()
+            .addAccount("yourAccount")
+            .addMerchantId("yourMerchantId")
+            .addType(PaymentType.AUTH)
+            .addAmount(100)
+            .addCurrency("EUR")
+            .addCard(card)
+            .addAutoSettle(new AutoSettle().addFlag(AutoSettleFlag.TRUE)); 
     }
 }
 ```
