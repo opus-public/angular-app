@@ -51,9 +51,5 @@ public class RealexRemote {
 }
 ```
 
-See [StripeTest.java](https://github.com/stripe/stripe-java/blob/master/src/test/java/com/stripe/StripeTest.java) for more examples.
-
 Testing
 =======
-
-You must have Maven installed. To run the tests, simply run `mvn test`. You can run particular tests by passing `-D test=Class#method` -- for example, `-D test=StripeTest#testPlanCreate`.
