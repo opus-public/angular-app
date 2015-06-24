@@ -22,16 +22,11 @@ Add this dependency to your project's POM:
 Usage
 =====
 
-StripeExample.java
+RealexRemote.java
 
 ```java
-import java.util.HashMap;
-import java.util.Map;
 
-import com.stripe.Stripe;
-import com.stripe.exception.StripeException;
-import com.stripe.model.Charge;
-import com.stripe.net.RequestOptions;
+import com.realexpayments.*;
 
 public class RealexRemote {
 
